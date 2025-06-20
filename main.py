@@ -37,8 +37,8 @@ def main():
     load_dotenv()
     apikey = os.getenv('APIKEY')
     address = input('Где вы находитесь? ')
-    user_coordinates = fetch_coordinates(apikey, address)
     fetch_coordinates(apikey, address)
+    user_coordinates = fetch_coordinates(apikey, address)
     with open("files/coffee.json", encoding='CP1251') as file:
         coffee_shops = json.load(file)
     shops = []
