@@ -42,11 +42,11 @@ def main():
     with open("files/coffee.json", encoding='CP1251') as file:
         coffee_shops = json.load(file)
     shops = []
-    for shop in coffee_shops:
+    for coffee_shop in coffee_shops:
         shop_info = {}
-        shop_info['title'] = shop['Name']
-        shop_info['longitude'] = shop['geoData']['coordinates'][0]
-        shop_info['latitude'] = shop['geoData']['coordinates'][1]
+        shop_info['title'] = coffee_shop['Name']
+        shop_info['longitude'] = coffee_shop['geoData']['coordinates'][0]
+        shop_info['latitude'] = coffee_shop['geoData']['coordinates'][1]
         shop_info['distance'] = (
                             distance.distance(
                                 user_coordinates,
