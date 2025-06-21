@@ -39,7 +39,7 @@ def main():
     address = input('Где вы находитесь? ')
     fetch_coordinates(apikey, address)
     user_coordinates = fetch_coordinates(apikey, address)
-    with open("files/coffee.json", encoding='CP1251') as file:
+    with open('files/coffee.json', encoding='CP1251') as file:
         coffee_shops = json.load(file)
     shops = []
     for coffee_shop in coffee_shops:
@@ -60,18 +60,18 @@ def main():
     m = folium.Map(location=user_coordinates, zoom_start=12)
     folium.Marker(
         location=user_coordinates,
-        tooltip="Нажми меня!",
-        popup="Вы здесь",
-        icon=folium.Icon(icon="cloud"),
+        tooltip='Нажми меня!',
+        popup='Вы здесь',
+        icon=folium.Icon(icon='cloud'),
     ).add_to(m)
     for shop_info in closest_shops:
         folium.Marker(
             location=(shop_info['latitude'], shop_info['longitude']),
-            tooltip="Нажми меня!",
+            tooltip='Нажми меня!',
             popup=shop_info['title'],
-            icon=folium.Icon(color="green"),
+            icon=folium.Icon(color='green'),
         ).add_to(m)
-    m.save("index.html")
+    m.save('index.html')
 
 
 if __name__ == '__main__':
